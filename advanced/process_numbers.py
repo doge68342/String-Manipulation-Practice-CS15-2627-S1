@@ -1,10 +1,13 @@
 def process_numbers(string_to_process):
     string_to_process = string_to_process.strip()
-    string_to_process = string_to_process.replace(",", " ")
-    strings_to_process = string_to_process.split()
+    strings_to_process = string_to_process.split(",")
     numbers_to_process = []
     for string in strings_to_process:
-        numbers_to_process.append(int(string))
+        try:
+            numbers_to_process.append(int(string))
+        except ValueError:
+            print("Invalid input, all inputs must be numbers seperated by commas")
+            return False
 
     total = 0
     for num in numbers_to_process:
@@ -12,6 +15,7 @@ def process_numbers(string_to_process):
 
     print(f"Total: {total}")
     print(f"Average: {total / len(numbers_to_process)}")
+    return True
 
 # Expected Output:
 # "Total: 100"

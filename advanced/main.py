@@ -1,7 +1,7 @@
-from format_list import * 
-from format_name import * 
-from format_title import * 
-from process_numbers import * 
+from format_list import format_list
+from format_name import format_name
+from format_title import format_title
+from process_numbers import process_numbers
 
 print("Choose how you would like to process a string:")
 print()
@@ -23,15 +23,20 @@ def get_function():
         return get_function()
 function = get_function()
 
-string_to_process = input("Enter the string to process: ")
-print()
-print("Processed String:")
+while True:
+    string_to_process = input("Enter the string to process: ")
+    print()
+    print("Processed String:")
 
-if function == 1:
-    format_name(string_to_process)
-if function == 2:
-    format_title(string_to_process)
-if function == 3:
-    format_list(string_to_process)
-if function == 4:
-    process_numbers(string_to_process)
+    if function == 1:
+        if format_name(string_to_process) == True:
+            break
+    if function == 2:
+        format_title(string_to_process)
+        break
+    if function == 3:
+        format_list(string_to_process)
+        break
+    if function == 4:
+        if process_numbers(string_to_process) == True:
+            break
